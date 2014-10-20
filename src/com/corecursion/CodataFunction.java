@@ -8,8 +8,16 @@ public abstract class CodataFunction<T> {
 		this.data = data;
 	}
 	
-	protected Codata<T> getData() {
-		return data;
+	public T lastValue() {
+		return data.lastValue();
+	}
+	
+	public int lastIndex() {
+		return data.lastIndex();
+	}
+	
+	public T get(final int index) {
+		return data.get(index);
 	}
 	
 	public abstract T getNext();

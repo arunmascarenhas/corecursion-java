@@ -12,14 +12,14 @@ public class CorecursivePrimeGenerator {
 
 					@Override
 					public Integer getNext() {
-						for (int i = getData().lastValue() + 2; ; i += 2) {
+						for (int i = lastValue() + 2; ; i += 2) {
 							if (isPrime(i)) {
 								return i;
 							}
 						}
 					}
 					
-					private boolean isPrime(int n) {
+					private boolean isPrime(Integer n) {
 						for (int i = 2; i <= Math.sqrt(n); i++) {
 							if (0 == (n % i)) {
 								return false;
@@ -29,12 +29,13 @@ public class CorecursivePrimeGenerator {
 					}
 					
 				},
-				2, 3
+				1,
+				Integer.valueOf(2), Integer.valueOf(3)
 			);
 
 	public static void main(final String... args) {
-		printFirstNPrimes(1000);
-		System.out.println(String.format("The 1000th prime is %s", primes.get(1000)));
+		printFirstNPrimes(10);
+		System.out.println(String.format("The 100th prime is %s", primes.get(100)));
 	}
 	
 	public static void printFirstNPrimes(final int n) {
